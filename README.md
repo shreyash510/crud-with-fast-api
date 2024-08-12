@@ -76,5 +76,30 @@ The standard extra dependencies are rich and shellingham.
 
 Note: The typer command is only included in the typer package.
 
+# Typer, the FastAPI of CLIs
+```
+$ pip install "fastapi[standard]"
+```
+create file main.py with
+```
+from typing import Union
 
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
+```
+start server
+```
+fastapi dev main.py
+```
 

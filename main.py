@@ -1,19 +1,15 @@
-import typer
+from typing import Union
 
-app = typer.Typer()
+from fastapi import FastAPI
 
-@app.command()
-def hello(name: str):
-    print(f"Hello {name}")
+app = FastAPI()
 
 
-@app.command()
-def goodbye(name: str, formal: bool = False):
-    if formal:
-        print(f"Goodbye Ms. {name}. Have a good day.")
-    else:
-        print(f"Bye {name}!")
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
 
 
-if __name__ == "__main__":
-    app()
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
