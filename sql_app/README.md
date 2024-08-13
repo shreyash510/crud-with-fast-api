@@ -102,4 +102,6 @@ start server
 ```
 fastapi dev main.py
 ```
-
+```
+uvicorn sql_app.main:app --reload
+```

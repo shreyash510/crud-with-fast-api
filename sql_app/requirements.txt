@@ -1,0 +1,4 @@
+typer
+sqlalchemy
+"typer-slim[standard]"
+uvicorn
