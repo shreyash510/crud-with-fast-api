@@ -106,3 +106,4 @@ fastapi dev main.py
 ```
 uvicorn sql_app.main:app --reload
 ```
+Try adding --use-deprecated=legacy-resolver after your pip install commands for example:```pip install -r requirements.txt --use-deprecated=legacy-resolver```
